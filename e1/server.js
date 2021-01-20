@@ -1,56 +1,7 @@
-// const http = require("http");
-// const fs = require("fs")
-// const PATH_HOME = "home.html"
-
-
-// const server = http.createServer((request, response) => {
-
-//   let url = `${request.url}`
-//   let path = url.substring(1)
-
-//   fs.readFile(path, (error, data) => {
-
-//     if (error) {
-
-//       fs.readFile(PATH_HOME, (error, data) => {
-
-//         if (error) {
-
-//           response.writeHead(404, { "Content-Type": "text/html" });
-//           response.write("Error: Page not found");
-//           response.end();
-
-//         } else {
-
-//           response.writeHead(200, { "Context-Type": "text/html" })
-//           response.write(data)
-//           response.end()
-//         }
-//       })
-
-//     } else {
-
-//       response.writeHead(200, { "Context-Type": "text/html" })
-//       response.write(data)
-//       response.end()
-//     }
-
-
-//   })
-// })
-
-// const port = "1234";
-// const host = "127.0.0.1";
-
-// server.listen(port, host, () => {
-//   console.log(`Servidor corriendo en http://${host}:${port}`)
-// })
-
-///////////////////
 
 const http = require("http");
 const fs = require("fs")
-const PATH_HOME = "html/home.html"
+const PATH_HOME = "public/html/home.html"
 
 
 const server = http.createServer((request, response) => {
@@ -64,27 +15,27 @@ const server = http.createServer((request, response) => {
     }
   })
 
-  let extension = "." + request.url.split(".").slice(-1)
+  let extension = request.url.split(".")[request.url.split(".").length - 1]
 
   let ruta = "";
   let contentType = "";
   if (extension !== "") {
     switch (extension) {
-      case '.js':
-        ruta = "." + request.url;
+      case 'js':
+        ruta = `./public/src${request.url}`;
         contentType = 'text/javascript';
         break;
-      case '.css':
-        ruta = "." + request.url;
+      case 'css':
+        ruta = `./public/style${request.url}`;
         contentType = 'text/css';
         break;
-      case '.html':
-        ruta = "html/" + request.url.substring(1);
+      case 'html':
+        ruta = `./public/html${request.url}`;
         contentType = 'text/html';
         break;
-      case '.png':
-        ruta = "." + request.url;
-        contentType = 'text/png';
+      case 'png':
+        ruta = `./public/images${request.url}`;
+        contentType = 'image/png';
         break;
       default:
         ruta = "";
@@ -131,4 +82,3 @@ const host = "127.0.0.1";
 server.listen(port, host, () => {
   console.log(`Servidor corriendo en http://${host}:${port}`)
 })
-
