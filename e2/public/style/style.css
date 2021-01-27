@@ -1,0 +1,183 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 100%;
+  margin: 0% auto;
+  background-color: rgb(202, 202, 202);
+}
+
+li {
+  list-style: none;
+}
+
+.cursos {
+  display: none;
+}
+.header-top {
+  background-color: #ee565b;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 30px;
+  font-size: 13px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #333c4e;
+  background-color: white;
+}
+
+span {
+  width: 800px;
+  height: 100%;
+}
+.container1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.container2 {
+  height: 60px;
+  margin: 0;
+}
+
+.container3 {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.listado {
+  width: 20%;
+  text-align: center;
+}
+
+.list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.neoland {
+  display: flex;
+  align-items: center;
+  margin: 0px 30px 0px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #333c4e;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.button1 {
+  margin: 0px 10px 0px 20px;
+  width: 230px;
+  height: 35px;
+  background-color: white;
+  color: #333c4e;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0px;
+  border: 2px solid #333c4e;
+  border-radius: 20px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button2 {
+  margin: 0px 30px 0px 10px;
+  width: 230px;
+  height: 35px;
+  background-color: #ee565b;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0px;
+  border: 2px transparent;
+  border-radius: 20px;
+  outline: none;
+}
+
+.button1 a {
+  color: #333c4e;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button2 a {
+  color: white;
+}
+.button1:hover {
+  width: 250px;
+  height: 40px;
+  transition: 0.5s;
+}
+.button1 a:hover {
+  color: white;
+  background-color: #333c4e;
+}
+.button2:hover {
+  width: 250px;
+  height: 40px;
+  transition: 0.5s;
+}
+.listado a:hover {
+  animation: underline 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes underline {
+  0% {
+    border-bottom: 2px solid white;
+  }
+  100% {
+    border-bottom: 2px solid red;
+  }
+}
+
+#active a {
+  border-bottom: 2px solid red;
+}
+
+#active a,
+#active a:hover {
+  border-bottom: 2px solid red;
+  animation: none;
+}
+
+.recuadro {
+  padding: 5px;
+  background-color: white;
+  color: #333c4e;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+h1 {
+  color: #333c4e;
+}

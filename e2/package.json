@@ -1,0 +1,15 @@
+{
+  "name": "api-cursos",
+  "version": "1.0.0",
+  "description": "api donde encontrar tipos de cursos",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Alejandro Ortiz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
