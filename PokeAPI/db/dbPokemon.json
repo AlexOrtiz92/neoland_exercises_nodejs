@@ -1,17 +1,32 @@
 [
   {
-    "id": 1,
-    "name": "Bulbasaur",
-    "type": "Planta"
+    "id": 2,
+    "name": "mew",
+    "type": "normal"
+  },
+  {
+    "id": 3,
+    "name": "mew",
+    "type": "normal"
   },
   {
     "id": 4,
-    "name": "Squirtle",
-    "type": "Agua"
+    "name": "mew",
+    "type": "normal"
+  },
+  {
+    "id": 6,
+    "name": "mew",
+    "type": "normal"
   },
   {
     "id": 7,
-    "name": "Charmander",
-    "type": "Fuego"
+    "name": "mew",
+    "type": "normal"
+  },
+  {
+    "id": 8,
+    "name": "mew",
+    "type": "normal"
   }
 ]
