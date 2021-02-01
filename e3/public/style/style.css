@@ -1,0 +1,114 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  width: 100%;
+  margin: 0% auto;
+  background-color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.cursos {
+  display: none;
+}
+.header-top {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #003c6b;
+  height: auto;
+  font-size: 13px;
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-size: 35px;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #003c6b;
+  background-color: #79d4ff;
+}
+
+span {
+  width: 800px;
+  height: 100%;
+}
+.container1 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.container2 {
+  height: 60px;
+  margin: 0;
+}
+
+.listado {
+  width: 20%;
+  text-align: center;
+}
+
+.list-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.world {
+  display: flex;
+  align-items: center;
+  margin: 0px 30px 0px 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #003c6b;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.listado a:hover {
+  animation: underline 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes underline {
+  0% {
+    border-bottom: 2px solid #79d4ff;
+  }
+  100% {
+    border-bottom: 2px solid #003c6b;
+  }
+}
+
+#active a {
+  border-bottom: 2px solid #003c6b;
+}
+
+#active a,
+#active a:hover {
+  border-bottom: 2px solid #003c6b;
+  animation: none;
+}
+
+h1 {
+  color: #333c4e;
+  margin: 20px 40px;
+}

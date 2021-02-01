@@ -7,7 +7,7 @@ const log = require("./public/src/log")
 
 const server = http.createServer((request, response) => {
 
-  log.write(request);
+  // log.write(request);
 
   let extension = request.url.split(".")[request.url.split(".").length - 1]
 
