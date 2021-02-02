@@ -112,3 +112,15 @@ h1 {
   color: #333c4e;
   margin: 20px 40px;
 }
+
+#lang {
+  font-weight: 600;
+}
+
+.flag {
+  border: 1px ridge black;
+}
+
+#container4 {
+  color: #333c4e;
+}

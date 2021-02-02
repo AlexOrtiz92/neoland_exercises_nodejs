@@ -17,10 +17,13 @@ const allCountries = fetch(URL_COUNTRIES)
     let paises = data.map((value) => value.name);
 
     let totalPaises = paises.reduce((acc, next) => acc +
-      `<li>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp${next}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</li>`, ""
+      `<li>${next}</li>`, ""
     )
+    console.log(data)
     paisesCont.innerHTML = totalPaises
   })
   .catch(function (err) {
     console.error(err);
   });
+
+
