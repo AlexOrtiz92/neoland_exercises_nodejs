@@ -56,7 +56,9 @@ api.post("/api/pokemon", (request, response) => {
 
     fs.readFile("db/dbPokemon.json", (err, data) => {
       const allPokemon = JSON.parse(data);
-      let isPokemon = 0
+
+      //configuramos el ID
+      let idPokemon = 0
 
       if (allPokemon[allPokemon.length - 1] == null) {
 

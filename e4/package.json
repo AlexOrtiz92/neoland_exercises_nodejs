@@ -1,0 +1,22 @@
+{
+  "name": "api_movies",
+  "version": "1.0.0",
+  "description": "Api donde podamos trabajar con peliculas",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexOrtiz92/neoland_exercises_nodejs.git"
+  },
+  "author": "Alejandro Ortiz Ortega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexOrtiz92/neoland_exercises_nodejs/issues"
+  },
+  "homepage": "https://github.com/AlexOrtiz92/neoland_exercises_nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
