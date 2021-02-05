@@ -1,4 +1,4 @@
-//ESTE JS SE HACE POST POR PARAMETROS
+//ESTE JS SE HACE POST POR QUERY PARAMS
 
 const express = require("express");
 const fs = require("fs");

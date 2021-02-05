@@ -4,6 +4,7 @@ const express = require("express");
 const fs = require("fs");
 
 const bodyParser = require("body-parser");
+const { parse } = require("path");
 
 const api = express();
 
@@ -196,6 +197,130 @@ api.get("/api/onepokemon", (request, response) => {
   }
 });
 
+// lo haremos mediante PARAMS(pero otros params) mas elegante.
+///api/pokemons/1 por ejemplo
+api.get("/api/pokemons/:id", (request, response) => {
+  console.log("como consigo el id?");
+
+  if (!request.params.id) {
+    response.status(200).send({
+      succes: false,
+      url: "/api/pokemons",
+      method: "GET ONE",
+      message: "id  is required",
+    });
+  } else {
+
+    fs.readFile("db/dbPokemon.json", (err, data) => {
+      const allPokemon = JSON.parse(data);
+
+      const onePokemon = allPokemon.find((value) => value.id === parseInt(request.params.id));
+
+      response.status(201).send({
+        succes: true,
+        url: "/api/pokemons",
+        method: "GET ONE por Params",
+        message: "pokemon sacado correctamente",
+        pokemon: onePokemon,
+      });
+    });
+  };
+});
+
+//metodo PUT
+//sacamos la info por params y actualizamosa traves del body
+api.put("/api/pokemons/:id", (request, response) => {
+
+  if (!request.params.id) {
+    response.status(200).send({
+      succes: false,
+      url: "/api/pokemons",
+      method: "PUT",
+      message: "id  is required",
+    });
+  } else {
+
+    fs.readFile("db/dbPokemon.json", (err, data) => {
+      const allPokemon = JSON.parse(data);
+
+      const updatedPokemon = allPokemon.map((value) => {
+        if (value.id === parseInt(request.params.id)) {
+          value = {
+            id: value.id,
+            name: request.body.name || value.name,
+            type: request.body.type || value.type
+          }
+          //ó
+          // value = { ...value, type: request.body.type }  //Este es solo para type
+          return value
+        } else {
+          return value
+        }
+      })
+
+      fs.writeFile("db/dbPokemon.json", JSON.stringify(updatedPokemon), (err) => {
+        if (err) {
+          response.status(400).send({
+            succes: false,
+            url: "/api/pokemons",
+            method: "PUT",
+            message: "fallo al actualizar el pokemon",
+          });
+        } else {
+          response.status(201).send({
+            succes: true,
+            url: "/api/pokemons",
+            method: "PUT",
+            message: "pokemon actualizado correctamente",
+          })
+        }
+      })
+    })
+  }
+})
+
+//PAGINADO
+
+api.get("/api/pokemons/page/:page", (request, response) => {
+
+  //paginado con limite 5 items
+  if (!request.params.page) {
+    response.status(200).send({
+      succes: false,
+      url: "/api/pokemons",
+      method: "PUT",
+      message: "id is required",
+    });
+  } else {
+    if (isNaN(parseInt(request.params.page))) {
+      response.status(400).send({
+        succes: false,
+        url: "/api/pokemons",
+        method: "GET",
+        message: "Por favor, introduzca un numero",
+      })
+
+    } else {
+      fs.readFile("db/dbPokemon.json", (err, data) => {
+        const allPokemon = JSON.parse(data);
+        const PAGE_SIZE = 7;//permite cambiar el tamaño de las paginas segun queramos
+        // const group = () => { request.params.page * 5 }
+
+        const groupPokemon = allPokemon.slice((Math.abs(request.params.page) * PAGE_SIZE) - PAGE_SIZE, (Math.abs(request.params.page) * PAGE_SIZE));
+
+        response.status(201).send({
+          succes: true,
+          url: "/api/pokemons",
+          method: "GET",
+          message: "Pagina sacada correctamente",
+          pokemon: groupPokemon
+        })
+      })
+    }
+  }
+})
+
+
 
 const port = "5555";
 const host = "127.0.0.1";
@@ -203,3 +328,5 @@ const host = "127.0.0.1";
 api.listen(port, host, () => {
   console.log(`Servidor corriendo en http://${host}:${port}/api/pokemon`);
 });
+
+
