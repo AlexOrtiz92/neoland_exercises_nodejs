@@ -2,12 +2,46 @@
   {
     "id": 1,
     "name": "Bulbasaur",
-    "type": "Planta"
+    "type": "Planta",
+    "locations": [
+      {
+        "id": 1,
+        "alt": 10.5454,
+        "long": 10.5454
+      },
+      {
+        "id": 2,
+        "alt": 20.5454,
+        "long": 20.5454
+      },
+      {
+        "id": 3,
+        "alt": 30.5454,
+        "long": 30.5454
+      }
+    ]
   },
   {
     "id": 2,
     "name": "Squirtle",
-    "type": "Agua"
+    "type": "Agua",
+    "locations": [
+      {
+        "id": 1,
+        "alt": 40.5454,
+        "long": 40.5454
+      },
+      {
+        "id": 2,
+        "alt": 50.5454,
+        "long": 50.5454
+      },
+      {
+        "id": 3,
+        "alt": 60.5454,
+        "long": 60.5454
+      }
+    ]
   },
   {
     "id": 3,

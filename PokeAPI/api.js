@@ -320,6 +320,85 @@ api.get("/api/pokemons/page/:page", (request, response) => {
   }
 })
 
+//PAGINADO con limit y offset
+//lo suyo seria abordarlo dentro del primer get, pero por tener apuntes nuevos lo haremos a parte
+
+api.get("/api/pokemon/pageoffset", (request, response) => {
+
+  fs.readFile("db/dbPokemon.json", (err, data) => {
+
+    const allPokemon = JSON.parse(data);
+
+
+    // const { offset, limit } = request.query
+    const offset = Math.abs(parseInt(request.query.offset)) - 1;
+    const limit = Math.abs(parseInt(request.query.limit));
+
+    if (!(offset + 1) || !limit) {
+      response.status(400).send({
+        succes: false,
+        url: "/api/pokemon/pageoffset",
+        method: "GET",
+        message: "empty data",
+      });
+    } else {
+
+      const groupPokemon = allPokemon.slice(offset, offset + limit);
+
+      response.status(201).send({
+        succes: true,
+        url: "/api/pokemon/pageoffset",
+        method: "GET",
+        message: "Pagina sacada correctamente",
+        pokemon: groupPokemon
+      })
+    }
+  })
+})
+
+//hacer llamada a Sub-recursos
+
+api.get("/api/pokemons/:pokemonID/location/:locationID", (request, response) => {
+
+  fs.readFile("db/dbPokemon.json", (err, data) => {
+    const allPokemon = JSON.parse(data);
+
+    const pokemon = allPokemon.find((value) => value.id === parseInt(request.params.pokemonID))
+
+    const locationPok = () => {
+      if (!pokemon.locations) {
+
+        return undefined
+
+      } else {
+        return pokemon.locations.find((value) => value.id === parseInt(request.params.locationID))
+      }
+    }
+
+    if (locationPok() == null) {
+      response.status(400).send({
+        succes: false,
+        url: "/api/pokemon",
+        method: "GET",
+        message: "no existe ese pokemon o esa localizacion",
+      });
+    } else {
+      response.status(201).send({
+        succes: true,
+        url: "/api/pokemon",
+        method: "GET",
+        message: `Localizacion del pokemon ${pokemon.name}`,
+        pokemon: locationPok()
+      })
+    }
+  })
+})
+
+
+
+
+
+
 
 
 const port = "5555";
