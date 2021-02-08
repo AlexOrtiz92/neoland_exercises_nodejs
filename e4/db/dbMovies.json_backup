@@ -4,7 +4,21 @@
     "title": "ESDLA",
     "director": "Peter Jackson",
     "genre": "fantasy",
-    "year": 2001
+    "year": 2001,
+    "actors": [
+      {
+        "id": 1,
+        "name": "Elijah Wood",
+        "age": 40,
+        "character": "Frodo Bolson"
+      },
+      {
+        "id": 2,
+        "name": "Ian Mckellen",
+        "age": 70,
+        "character": "Gandalf"
+      }
+    ]
   },
   {
     "id": 2,
@@ -19,5 +33,12 @@
     "director": "Truman Capote",
     "genre": "Amor mierda",
     "year": "1963"
+  },
+  {
+    "id": 4,
+    "title": "Bladerunner",
+    "director": "Ni idea",
+    "genre": "Ciencia ficcion",
+    "year": "2018"
   }
 ]

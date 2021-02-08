@@ -9,6 +9,8 @@ const api = express();
 
 api.use(bodyParser.urlencoded({ extended: true }));
 
+//conseguir todas la peliculas
+
 api.get("/api/movies", (request, response) => {
   fs.readFile("db/dbMovies.json", (err, data) => {
     if (err) throw err;
@@ -24,6 +26,8 @@ api.get("/api/movies", (request, response) => {
   });
 });
 
+
+//añadir una pelicula
 api.post("/api/movie", (request, response) => {
 
   let title = request.body.title
@@ -82,6 +86,8 @@ api.post("/api/movie", (request, response) => {
   }
 });
 
+
+//Eliminar una pelicula
 api.delete("/api/movie", (request, response) => {
 
   if (!request.body.id) {
@@ -119,6 +125,8 @@ api.delete("/api/movie", (request, response) => {
     })
   }
 })
+
+
 //GET una pelicula
 api.get("/api/movie", (request, response) => {
 
@@ -149,7 +157,8 @@ api.get("/api/movie", (request, response) => {
   })
 })
 
-//GET genero
+
+//GET segun su genero
 
 api.get("/api/movies/genre", (request, response) => {
 
@@ -180,6 +189,95 @@ api.get("/api/movies/genre", (request, response) => {
 
   })
 })
+
+//GET one por params y segun ID
+
+api.get("/api/movies/:id", (request, response) => {
+
+  if (!request.params.id) {
+    response.status(400).send({
+      succes: false,
+      url: "/api/movies/:id",
+      method: "GET",
+      message: "Debe intrioducir un numero de ID"
+    })
+
+  } else {
+
+    fs.readFile("db/dbMovies.json", (err, data) => {
+
+      if (err) throw err;
+      const allMovies = JSON.parse(data);
+      const oneMovie = allMovies.find((movie) => movie.id === parseInt(request.params.id))
+
+      if (!oneMovie) {
+        response.status(200).send({
+          succes: true,
+          url: "/api/movies/:id",
+          method: "GET",
+          message: "El numero de ID que indica no existe"
+        })
+      } else {
+        response.status(200).send({
+          succes: true,
+          url: "/api/movies/:id",
+          method: "GET",
+          message: oneMovie
+        })
+      }
+    })
+  }
+})
+
+//Actualizo una pelicula
+
+api.put("/api/movie/:id", (request, response) => {
+
+  fs.readFile("db/dbMovies.json", (err, data) => {
+
+    const allMovies = JSON.parse(data);
+    const oneMovie = allMovies.find((movie) => movie.id === parseInt(request.params.id))
+
+    const updatedMov = {
+      id: oneMovie.id,
+      title: request.body.title || oneMovie.title,
+      director: request.body.director || oneMovie.director,
+      genre: request.body.genre || oneMovie.genre,
+      year: request.body.year || oneMovie.year
+    }
+
+    const updAllMovies = allMovies.map((movie) => {
+      if (movie.id === parseInt(request.params.id)) {
+        return movie = updatedMov
+      } else {
+        return movie
+      }
+    })
+
+    fs.writeFile("db/dbMovies.json", JSON.stringify(updAllMovies), (err) => {
+      if (err) {
+        response.status(400).send({
+          succes: false,
+          url: "/api/movie/:id",
+          method: "PUT",
+          message: "No ha podido actualizarse la pelicula"
+
+        })
+      } else {
+        response.status(200).send({
+          succes: true,
+          url: "/api/movie/:id",
+          method: "PUT",
+          message: "Pelicula actualizada correctamente"
+        })
+      }
+    })
+  })
+})
+
+
+
+
 
 const port = "1111";
 const host = "127.0.0.1";
