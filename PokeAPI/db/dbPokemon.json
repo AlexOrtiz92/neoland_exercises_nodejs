@@ -202,5 +202,10 @@
     "id": 34,
     "name": "Ho-oh",
     "type": "Fuego/Volador"
+  },
+  {
+    "id": 35,
+    "name": "Chikorita",
+    "type": "Planta"
   }
 ]

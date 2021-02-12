@@ -1,7 +1,8 @@
 const http = require("http");
+const fs = require("fs")
 
 const server = http.createServer((request, response) => {
-  fs.readFile("index.html",  (error, data) => {
+  fs.readFile("index.html", (error, data) => {
     if (error) {
       console.error(error.message, error.code);
       response.writeHead(404);

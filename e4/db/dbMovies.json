@@ -1,1 +1,92 @@
-[{"id":1,"title":"ESDLA","director":"Peter Jackson","genre":"fantasy","year":2001,"actors":[{"id":1,"name":"Elijah Wood","age":40,"character":"Frodo Bolson"},{"id":2,"name":"Ian Mckellen","age":70,"character":"Gandalf"}]},{"id":2,"title":"Star Wars- Episodio III","director":"George Lucas & J.J. Abrahams","genre":"SCIFI","year":"2005"},{"id":3,"title":"Desayuno con diamantes","director":"Truman Capote","genre":"Amor mierda","year":"1963"},{"id":4,"title":"Bladerunner","director":"Ni idea","genre":"SCIFI","year":"2018"}]
+[
+  {
+    "id": 1,
+    "title": "ESDLA",
+    "director": "Peter Jackson",
+    "genre": "fantasy",
+    "year": 2001,
+    "actors": [
+      {
+        "id": 1,
+        "name": "Elijah Wood",
+        "age": 40,
+        "character": "Frodo Bolson"
+      },
+      {
+        "id": 2,
+        "name": "Ian Mckellen",
+        "age": 70,
+        "character": "Gandalf"
+      },
+      {
+        "id": 3,
+        "name": "Orlando Bloom",
+        "age": 44,
+        "character": "Legolas"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Star Wars- Episodio III",
+    "director": "George Lucas & J.J. Abrahams",
+    "genre": "SCIFI",
+    "year": "2005",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Ewan McGregor",
+        "age": 49,
+        "character": "Obi-Wan Kenobi "
+      },
+      {
+        "id": 2,
+        "name": "Hayden Christensen",
+        "age": "40",
+        "character": "Anakin Skywalker"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Desayuno con diamantes",
+    "director": "Truman Capote",
+    "genre": "Amor mierda",
+    "year": "1963"
+  },
+  {
+    "id": 4,
+    "title": "Bladerunner",
+    "director": "Ni idea",
+    "genre": "SCIFI",
+    "year": "2018"
+  },
+  {
+    "id": 5,
+    "title": "Harry Potter",
+    "director": "JK Rowling",
+    "genre": "Fantasia",
+    "year": "2002"
+  },
+  {
+    "id": 6,
+    "title": "Avatar",
+    "director": "James cameron",
+    "genre": "Aventura",
+    "year": "2000"
+  },
+  {
+    "id": 7,
+    "title": "Interestellar",
+    "director": "Manue",
+    "genre": "Drama",
+    "year": "2012"
+  },
+  {
+    "id": 8,
+    "title": "Karate Kid ",
+    "director": "JungChao",
+    "genre": "Accion",
+    "year": "1990"
+  }
+]

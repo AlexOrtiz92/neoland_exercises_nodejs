@@ -4,14 +4,33 @@ const express = require("express");
 const fs = require("fs");
 
 const bodyParser = require("body-parser");
-const { parse } = require("path");
 
 const api = express();
 
 
 //CONF CORS
+api.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  // authorized headers for preflight requests
+  // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+  api.options("*", (req, res) => {
+    // allowed XHR methods
+    res.header(
+      "Access-Control-Allow-Methods",
+      "GET, PATCH, PUT, POST, DELETE, OPTIONS"
+    );
+    res.send();
+  });
+});
 
 //CONF DECODE BODYPARSER
+
+api.use(bodyParser.json());
 
 api.use(bodyParser.urlencoded({ extended: true }));
 
@@ -45,7 +64,7 @@ api.post("/api/pokemon", (request, response) => {
       succes: false,
       url: "/api/pokemon",
       method: "POST",
-      message: "name and type is required",
+      message: "name and type are required",
     });
   } else {
     //request.query tenemos los valores de la querystring
@@ -287,7 +306,7 @@ api.get("/api/pokemons/page/:page", (request, response) => {
   if (!request.params.page) {
     response.status(200).send({
       succes: false,
-      url: "/api/pokemons",
+      url: "/api/movies/page",
       method: "PUT",
       message: "id is required",
     });
@@ -295,7 +314,7 @@ api.get("/api/pokemons/page/:page", (request, response) => {
     if (isNaN(parseInt(request.params.page))) {
       response.status(400).send({
         succes: false,
-        url: "/api/pokemons",
+        url: "/api/movies/page",
         method: "GET",
         message: "Por favor, introduzca un numero",
       })

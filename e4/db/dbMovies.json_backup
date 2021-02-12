@@ -17,15 +17,35 @@
         "name": "Ian Mckellen",
         "age": 70,
         "character": "Gandalf"
+      },
+      {
+        "id": 3,
+        "name": "Orlando Bloom",
+        "age": 44,
+        "character": "Legolas"
       }
     ]
   },
   {
     "id": 2,
-    "title": "Star Wars",
-    "director": "George Lucas",
-    "genre": "Ciencia ficcion",
-    "year": "1977"
+    "title": "Star Wars- Episodio III",
+    "director": "George Lucas & J.J. Abrahams",
+    "genre": "SCIFI",
+    "year": "2005",
+    "actors": [
+      {
+        "id": 1,
+        "name": "Ewan McGregor",
+        "age": 49,
+        "character": "Obi-Wan Kenobi "
+      },
+      {
+        "id": 2,
+        "name": "Hayden Christensen",
+        "age": "40",
+        "character": "Anakin Skywalker"
+      }
+    ]
   },
   {
     "id": 3,
@@ -38,7 +58,7 @@
     "id": 4,
     "title": "Bladerunner",
     "director": "Ni idea",
-    "genre": "Ciencia ficcion",
+    "genre": "SCIFI",
     "year": "2018"
   }
 ]

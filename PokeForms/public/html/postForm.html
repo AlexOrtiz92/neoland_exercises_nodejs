@@ -1,0 +1,41 @@
+<!-- POST FORM ACTION es la forma antigua -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>post</title>
+  <script src="" defer></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<!-- Esta es una manera arcaica, por lo que nos redirecciona a la propia api respondiendo. -->
+
+<!-- Esta manera de hacerlo, tendremos que añadir en los formularios los atributos "name", que te tienen que coincidit con las KEY de post, es decir, con los valores que vayamos a actualizar->name="name/name="type" -->
+
+<!-- se puede responder con un apagina si se lo indicamos en el metodo POST en la api -->
+
+<body>
+  <div class="container">
+    <h1 class="text-center">Post de un Pokemon</h1>
+    <form action="http://127.0.0.1:5555/api/pokemon" method="post">
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre Pokemon</label>
+        <input type="text" class="form-control" id="name" name="name">
+
+      </div>
+      <div class="mb-3">
+        <label for="type" class="form-label">Tipo</label>
+        <input type="text" class="form-control" id="type" name="type">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</body>
+
+</html>l

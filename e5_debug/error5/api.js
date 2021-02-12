@@ -3,12 +3,12 @@ const fs = require("fs");
 
 const api = express();
 
-app.get('/api/users', (req, res) => {
+api.get('/api/users', (req, res) => {
     fs.readFile("db/users.json", (error, data) => {
         const users = JSON.parse(data);
         res.status(200).send({
             success: 'true',
-            users: user
+            users: users
         });
     });
 });
@@ -19,21 +19,20 @@ api.get('/api/users/:id', (req, res) => {
         const users = JSON.parse(data);
 
         const user = users.find(
-            user => user.id === req.params.id
+            (user) => user.id === parseInt(req.params.id)
         );
 
-        if (user[0]) {
+        if (user) {
             res.status(200).send({
-                success: 'true',
+                success: true,
                 user: user
             });
         } else {
             res.status(200).send({
-                success: 'true',
+                success: true,
                 message: 'Usuario no encontrado'
             });
         }
-
     });
 });
 
@@ -53,7 +52,7 @@ api.get('/api/users/gender/:gender', (req, res) => {
                 users: usersByGender
             });
         } else {
-            res.status(200).send({
+            res.status(400).send({
                 success: true,
                 message: 'Usuarios por genero no encontrados'
             });
@@ -61,6 +60,6 @@ api.get('/api/users/gender/:gender', (req, res) => {
     });
 });
 
-api.listen(1234, function() {
+api.listen(1234, function () {
     console.log(`API corriendo`);
 });

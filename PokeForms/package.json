@@ -1,0 +1,25 @@
+{
+  "name": "pokeforms",
+  "version": "1.0.0",
+  "description": "Web service de pokemon",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexOrtiz92/neoland_exercises_nodejs.git"
+  },
+  "author": "Alejandro Ortiz Ortega",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexOrtiz92/neoland_exercises_nodejs/issues"
+  },
+  "homepage": "https://github.com/AlexOrtiz92/neoland_exercises_nodejs#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1"
+  }
+}
