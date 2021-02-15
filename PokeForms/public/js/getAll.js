@@ -1,5 +1,6 @@
 
 const ulPokemon = document.querySelector("#listadoPok")
+const boton = document.getElementById("boton");
 
 
 const getAll = () => {
@@ -32,3 +33,7 @@ const getAll = () => {
 }
 
 getAll();
+
+boton.addEventListener("click", () => {
+  getAll();
+})

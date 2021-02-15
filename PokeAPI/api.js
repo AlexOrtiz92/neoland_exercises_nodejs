@@ -322,16 +322,19 @@ api.get("/api/pokemons/page/:page", (request, response) => {
     } else {
       fs.readFile("db/dbPokemon.json", (err, data) => {
         const allPokemon = JSON.parse(data);
-        const PAGE_SIZE = 7;//permite cambiar el tamaño de las paginas segun queramos
+        const PAGE_SIZE = 5;//permite cambiar el tamaño de las paginas segun queramos
         // const group = () => { request.params.page * 5 }
 
         const groupPokemon = allPokemon.slice((Math.abs(request.params.page) * PAGE_SIZE) - PAGE_SIZE, (Math.abs(request.params.page) * PAGE_SIZE));
 
+        const nPaginas = Math.ceil(allPokemon.length / PAGE_SIZE)
         response.status(201).send({
           succes: true,
           url: "/api/pokemons",
           method: "GET",
           message: "Pagina sacada correctamente",
+          pagina: parseInt(request.params.page),
+          noPages: nPaginas,
           pokemon: groupPokemon
         })
       })

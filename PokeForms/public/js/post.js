@@ -1,3 +1,6 @@
+
+const boton = document.querySelector("#boton")
+//Tambien puede usarse un document.addEventListener("click", (event) =>{})
 const postPokemon = () => {
   alert("Ejecuta la funcion postPokemon")
 
@@ -37,3 +40,8 @@ const postPokemon = () => {
     console.error(err)
   })
 }
+
+boton.addEventListener("click", () => {
+  postPokemon();
+
+})

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paginado</title>
+  <script src="js/page.js" defer></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+</head>
+
+<body>
+  <div class="container text-center">
+    <img
+      src="https://static.wikia.nocookie.net/espokemon/images/4/46/Pok%C3%A9mon_Gotta_catch_em_all_logo.png/revision/latest?cb=20130917005914"
+      alt="PokeApi" width="400" class="img-fluid" />
+    <br />
+    <a href="getAll" class="text-success">Get All Pokemon</a>
+    <a href="post" class="text-primary">Add Pokemon</a>
+    <a href="delete" class="text-danger">Delete Pokemon</a>
+    <a href="page" class="text-info">Pagination</a>
+    <br><br>
+    <button id="boton" type="button" class="btn btn-outline-info">Refresh</button>
+    <br><br>
+
+
+    <h1 class="text-center">Paginado</h1>
+
+    <div class="row justify-content-md-center">
+      <ul class="list-group col-sm-4" id="listadoPok"></ul>
+    </div>
+    <br />
+    <div class="row justify-content-md-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination" id="ulPagination"></ul>
+      </nav>
+    </div>
+  </div>
+</body>
+
+</html>

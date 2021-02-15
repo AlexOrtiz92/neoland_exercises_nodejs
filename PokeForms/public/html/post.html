@@ -12,7 +12,15 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container  text-center">
+    <img
+      src="https://static.wikia.nocookie.net/espokemon/images/4/46/Pok%C3%A9mon_Gotta_catch_em_all_logo.png/revision/latest?cb=20130917005914"
+      alt="PokeApi" width="400" class="img-fluid">
+    <br>
+    <a href="getAll" class="text-success">Get All Pokemon</a>
+    <a href="post" class="text-primary">Add Pokemon</a>
+    <a href="delete" class="text-danger">Delete Pokemon</a>
+    <a href="page" class="text-info">Pagination</a>
     <h1 class="text-center">Post de un Pokemon</h1>
     <form action="http://127.0.0.1:5555/api/pokemon" method="post" autocomplete="on">
       <div class="mb-3">
@@ -24,7 +32,8 @@
         <input type="text" class="form-control" id="type">
       </div>
 
-      <button onclick="postPokemon()" type="button" class="btn btn-primary">Submit</button>
+      <button id="boton" type="button" class="btn btn-primary">Submit</button>
+
       <!-- Se quita el type="submit" -->
     </form>
   </div>

@@ -12,11 +12,22 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container  text-center">
+    <img
+      src="https://static.wikia.nocookie.net/espokemon/images/4/46/Pok%C3%A9mon_Gotta_catch_em_all_logo.png/revision/latest?cb=20130917005914"
+      alt="PokeApi" width="400" class="img-fluid">
+    <br>
+    <a href="getAll" class="text-success">Get All Pokemon</a>
+    <a href="post" class="text-primary">Add Pokemon</a>
+    <a href="delete" class="text-danger">Delete Pokemon</a>
+    <a href="page" class="text-info">Pagination</a>
+    <br><br>
+    <button id="boton" type="button" class="btn btn-outline-info">Refresh</button>
+    <br><br>
     <h1 class="text-center">Listado de Pokemon</h1>
     <ul class="list-group text-center" id="listadoPok">
-      <li class="list-group-item">An item</li>
-      <li class="list-group-item">A second item</li>
+      <li class="list-group-item list-group-item-action">An item</li>
+      <li class="list-group-item list-group-item-action">A second item</li>
     </ul>
 
   </div>
