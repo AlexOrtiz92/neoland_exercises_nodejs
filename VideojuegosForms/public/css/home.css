@@ -1,0 +1,88 @@
+body {
+  /* background-color: #bcddff9e; */
+  background: linear-gradient(to right, #5677ee73, #ee565b94);
+
+  color: #214c71;
+  /* font-family: "Quantico", sans-serif; */
+  font-family: "DotGothic16", sans-serif;
+}
+nav {
+  background: linear-gradient(to right, #5677ee73, #ee565b);
+  color: #214c71;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#title {
+  font-family: "Press Start 2P", cursive;
+  margin: 0 auto;
+}
+
+#mensaje {
+  font-size: 50px;
+  margin: 40px 0px 20px 0px;
+}
+
+#principal {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.card {
+  font-size: 18px;
+  margin: 5px;
+  border: solid 1px rgb(163, 160, 160);
+}
+.card-header {
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.cabecera {
+  margin: 20px auto;
+}
+
+.form-group {
+  font-size: 18px;
+}
+.form {
+  width: 70%;
+}
+
+.goBack {
+  width: 35px;
+  margin: 0px 20px;
+  font-size: 18px;
+}
+
+.ulList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.act {
+  background-color: #ee565b;
+  color: white;
+}
+
+.nonAct {
+  color: #ee565b;
+}
+
+.act:hover,
+.nonAct:hover {
+  color: #ee565b;
+}
+
+span {
+  font-weight: 700;
+}

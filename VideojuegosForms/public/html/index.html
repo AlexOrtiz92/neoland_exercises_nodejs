@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <script src="js/index.js" defer></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav2">
+      <a class="navbar-brand" href="home">
+        <img src="images/joypad.svg" alt="" width="60" class="logo"></a>
+      <h2 id="title">Game Insiders</h2>
+    </div>
+  </nav>
+
+  <div class="container  text-center cabecera">
+    <h1>Listado de videojuegos</h1>
+    <br>
+    <button id="refresh" type="button" class="btn btn-light btn-outline-primary">Refrescar</button>
+    <button id="deleteAll" type="button" class="btn btn-light btn-outline-danger">Eliminar Todo</button>
+    <a href="add"><button id="addOne" type="button" class="btn btn-light btn-outline-success">Añadir
+        Videojuego</button></a>
+  </div>
+  <div class="container p-3">
+    <div class="row" id="containerCards">
+
+      <!-- aqui -->
+      <!-- <div class="col-sm-12 col-md-4 col-lg-3">
+        <div class="card">
+          <img src="images/Bloodborne.png" class="card-img-top" alt="...">
+          <div class="card-header">
+            Bloodborne
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+          </ul>
+          <div class="card-body">
+            <a href="#" class="card-link text-success">Card link</a>
+            <a href="#" class="card-link text-danger">Another link</a>
+          </div>
+        </div>
+      </div> -->
+      <!-- aqui -->
+
+
+    </div>
+
+    <br />
+    <div class="">
+      <ul class="ulList" id="ulPagination">
+        <!-- <li class="page-item"><a class="page-link act" id="${i}">${i}</a></li>
+        <li class="page-item"><a class="page-link nonAct" id="${i}">${i}</a></li> -->
+      </ul>
+    </div>
+
+  </div>
+
+
+</body>
+
+</html>

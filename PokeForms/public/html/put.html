@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Put</title>
+  <script src="js/put.js" defer></script>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+  <div class="container text-center">
+    <img
+      src="https://static.wikia.nocookie.net/espokemon/images/4/46/Pok%C3%A9mon_Gotta_catch_em_all_logo.png/revision/latest?cb=20130917005914"
+      alt="PokeApi" width="400" class="img-fluid" />
+    <br />
+    <a href="getAll" class="text-success">Put Pokemon</a>
+    <a href="post" class="text-primary">Add Pokemon</a>
+    <a href="delete" class="text-danger">Delete Pokemon</a>
+    <a href="page" class="text-info">Pagination</a>
+    <a href="put" class="text-warning">Put Pokemon</a>
+
+    <br><br>
+    <button id="boton" type="button" class="btn btn-outline-info">Refresh</button>
+    <br><br>
+
+
+    <h1 class="text-center">Search and Put Pokemon</h1>
+
+    <div class="container d-flex flex-column justify-content-center">
+
+      <form>
+        <div class="input-group mb-3">
+          <input id="idPokemonSearch" type="text" class="form-control" placeholder="ID del Pokemon"
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button onclick="searchPokemon()" class="btn btn-outline-secondary" type="button"
+            id="button-addon2">Buscar</button>
+        </div>
+      </form>
+
+
+      <form>
+        <div class="mb-3">
+          <label for="idPokemon" class="form-label">ID Pokemon</label>
+          <input disabled type="text" class="form-control" id="idPokemon">
+        </div>
+
+        <div class="mb-3">
+          <label for="namePokemon" class="form-label">Nombre Pokemon</label>
+          <input type="text" class="form-control" id="namePokemon">
+        </div>
+
+
+        <div class="mb-3">
+          <label for="type" class="form-label">Tipo</label>
+          <input type="text" class="form-control" id="typePokemon">
+        </div>
+        <button onclick="putPokemon()" id="boton" type="button" class="btn btn-primary">Actualizar</button>
+
+      </form>
+    </div>
+
+  </div>
+
+
+
+</body>
+
+</html>

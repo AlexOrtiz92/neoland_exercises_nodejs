@@ -180,11 +180,12 @@ api.delete("/api/pokemon", (request, response) => {
 
 
 
-//GET ONE
+//GET ONE (query params)
 
 api.get("/api/onepokemon", (request, response) => {
 
-  if (!request.body.id) {
+
+  if (!request.query.id) {
     response.status(200).send({
       succes: false,
       url: "/api/onepokemon",
@@ -195,7 +196,7 @@ api.get("/api/onepokemon", (request, response) => {
     fs.readFile("db/dbPokemon.json", (err, data) => {
 
       const allPokemon = JSON.parse(data);
-      const id = request.body.id;
+      const id = request.query.id;
 
       const onePokemon = allPokemon
         .map((value) => {
@@ -203,7 +204,7 @@ api.get("/api/onepokemon", (request, response) => {
             return value;
           }
         })
-        .filter((value) => value != null);
+        .find((value) => value != null);
 
       response.status(201).send({
         succes: true,
@@ -215,6 +216,42 @@ api.get("/api/onepokemon", (request, response) => {
     })
   }
 });
+
+//GET ONE (por body)
+
+// api.get("/api/onepokemon", (request, response) => {
+
+//   if (!request.body.id) {
+//     response.status(200).send({
+//       succes: false,
+//       url: "/api/onepokemon",
+//       method: "GET ONE",
+//       message: "id or name is required",
+//     });
+//   } else {
+//     fs.readFile("db/dbPokemon.json", (err, data) => {
+
+//       const allPokemon = JSON.parse(data);
+//       const id = request.body.id;
+
+//       const onePokemon = allPokemon
+//         .map((value) => {
+//           if (`${value.id}` === id) {
+//             return value;
+//           }
+//         })
+//         .find((value) => value != null);
+
+//       response.status(201).send({
+//         succes: true,
+//         url: "/api/onepokemon",
+//         method: "GET ONE",
+//         message: "pokemon sacado correctamente",
+//         pokemon: onePokemon
+//       });
+//     })
+//   }
+// });
 
 // lo haremos mediante PARAMS(pero otros params) mas elegante.
 ///api/pokemons/1 por ejemplo

@@ -42,7 +42,7 @@
       {
         "id": 2,
         "name": "Hayden Christensen",
-        "age": "40",
+        "age": 40,
         "character": "Anakin Skywalker"
       }
     ]
