@@ -14,12 +14,24 @@ Estos van a ser los siguientes pasos a realizar en la aplicacion:
 
 3. ~~Añadir un boton de añadir Videojuego. Este boton te redirije a otro html donde te aparecera un formulario para que rellener un nuevo videojuego. Una vez lo añadas te redirije a la pagina ppal.~~
 
-4. Añadir un boton en cada tarjeta de eliminar el videojuego de la lista y refresque el listado total.
+4. ~~Añadir un boton en cada tarjeta de eliminar el videojuego de la lista y refresque el listado total.~~
 
 5. ~~Realizar paginado de 4 en 4~~
 
-6. Añadir un boton en cada tarjeta de editar videojuego, te llevara a otro html donde podras modificar el videojuego con un formulario
+6. ~~Añadir un boton en cada tarjeta de editar videojuego, te llevara a otro html donde podras modificar el videojuego con un formulario~~
 
 7. Si pulsamos en el videojuego nos llevara a una pagina donde podremos ver un carousel de imagenes y algun dato mas
 
 8. Añadir una modal para alguna transicion(al eliminar, por ejemplo)
+
+9. ~~Añadir y configurar botones prev y next~~
+
+10. Arreglos:
+
+- ~~cuando añadimos foto, redirigir a la misma pagina y recargar con las nuevas imagenes en el desplegable.~~
+
+- ~~Añadir a la API gestionar las imagenes repetidas no se añadan mas tanto a la bbdd como al servidor~~
+
+- ~~añadir nueva manera de hacer input form~~
+
+- ~~añadir gestion error en de api con middleware~~

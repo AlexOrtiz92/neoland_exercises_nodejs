@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AlexOrtiz92/neoland_exercises_nodejs#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "formidable": "^1.2.2"
   }
 }

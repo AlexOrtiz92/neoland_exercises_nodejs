@@ -1,4 +1,5 @@
 const express = require("express");
+const formidable = require("formidable")
 
 const fs = require("fs");
 
@@ -43,7 +44,7 @@ api.get("/api/videogames", (request, response) => {
       succes: true,
       url: "/api/videogames",
       method: "GET",
-      pokemon: allVideogames,
+      videogame: allVideogames,
     });
   });
 });
@@ -78,7 +79,7 @@ api.post("/api/videogames", (request, response) => {
         name: name,
         developer: developer,
         genre: genre,
-        image: image,
+        image: `images/${image}`,
       };
 
       allVideogames.push(newVideogame)
@@ -207,6 +208,7 @@ api.delete("/api/videogames/:id", (request, response) => {
 });
 //PUT actualiza los datos de un videojuego
 api.put("/api/videogames/:id", (request, response) => {
+
   fs.readFile(DB_VIDEOJ, (err, data) => {
     if (err) throw err;
     const allVideogames = JSON.parse(data);
@@ -282,9 +284,82 @@ api.get("/api/videogames/page/:page", (request, response) => {
 });
 
 
+//GET del listado d eimagenes
+api.get("/api/images", (request, response) => {
+
+  fs.readFile("db/imageName.json", (err, data) => {
+    if (err) throw err;
+    const allVideogames = JSON.parse(data);
+
+    response.status(200).send({
+      succes: true,
+      url: "/api/imglist",
+      method: "GET",
+      videogames: allVideogames,
+    });
+  });
+})
 
 
+//POST de imagenes al servidor y a la bbdd json
+api.post("/api/images", (request, response) => {
+  const form = new formidable.IncomingForm();
 
+  form.parse(request);
+
+  form.on("fileBegin", (name, file) => {
+    file.path = "/Users/alesortiz/Desktop/NEOLAND/PROYECTOS/neoland_exercises_nodejs/VideojuegosForms/public/images/" + file.name;
+  })
+
+  form.on("file", (name, file) => {
+    console.log("Uploaded " + file.name);
+
+
+    fs.readFile("db/imageName.json", (err, data) => {
+      if (err) throw err;
+      const allVideogames = JSON.parse(data);
+
+      const newImage = {
+        image: `${file.name}`,
+      };
+
+      const exist = allVideogames.find((value) => value.image === file.name)
+
+      if (exist == null) {
+        allVideogames.push(newImage)
+
+        fs.writeFile("db/imageName.json", JSON.stringify(allVideogames), (err) => {
+          if (err) {
+            response.status(400).send({
+              succes: false,
+              url: "/api/images",
+              method: "POST",
+              message: "No se ha podido añadir",
+            });
+
+          } else {
+            response.status(200).send({
+              succes: true,
+              url: "/api/images",
+              method: "POST",
+              message: "añadido correctamente",
+            });
+          };
+        })
+      } else {
+        response.status(400).send({
+          succes: false,
+          url: "/api/images",
+          method: "POST",
+          message: "La imagen ya se encuentra en la BBDD",
+        });
+      }
+    })
+  })
+  form.on('end', () => {
+    console.log('Done!');
+  });
+});
 
 
 

@@ -3,7 +3,7 @@
 const express = require("express");
 //instalamos formidable y jquery
 const formidable = require("formidable")
-const fs = require("fs");
+export const fs = require("fs");
 
 const app = express();
 

@@ -1,1 +1,72 @@
-[{"id":1,"name":"Batman: Arkham Knight","developer":"Rocksteady Studios","genre":"Action-adventure","image":"images/BatmanArkham.png"},{"id":2,"name":"Bloodborne","developer":"From Software","genre":"Soulslike","image":"images/Bloodborne.png"},{"id":3,"name":"Dark Souls 3","developer":"From Software","genre":"Soulslike","image":"images/DarkSouls3.png"},{"id":4,"name":"Dying Light","developer":"Techland","genre":"Survival","image":"images/DyingLight.png"},{"id":5,"name":"Halo 5","developer":"343 Industries","genre":"FPS","image":"Halo5.png"},{"id":6,"name":"Ori & the blind forest","developer":"343 Industries","genre":"Metroidvania","image":"Ori.png"},{"id":7,"name":"GTA V","developer":"Rockstar","genre":"Sandbox","image":"images/GTA_V.jpg"},{"id":8,"name":"Final Fantasy VII Remake","developer":"Square Enix","genre":"RPG","image":"images/FFXII.png"},{"id":9,"name":"Satar Wars Jedi Fallen Order","developer":"Respawn","genre":"RPG","image":"images/StarWars.png"}]
+[
+  {
+    "id": 1,
+    "name": "Batman: Arkham Knight",
+    "developer": "Rocksteady Studios",
+    "genre": "Action-adventure",
+    "image": "images/BatmanArkham.png"
+  },
+  {
+    "id": 2,
+    "name": "Bloodborne",
+    "developer": "From Software",
+    "genre": "Soulslike",
+    "image": "images/Bloodborne.png"
+  },
+  {
+    "id": 3,
+    "name": "Dark Souls 3",
+    "developer": "From Software",
+    "genre": "Soulslike",
+    "image": "DarkSouls3.png"
+  },
+  {
+    "id": 4,
+    "name": "Dying Light",
+    "developer": "Techland",
+    "genre": "Survival",
+    "image": "images/DyingLight.png"
+  },
+  {
+    "id": 5,
+    "name": "Halo 5",
+    "developer": "343 Industries",
+    "genre": "FPS",
+    "image": "Halo5.png"
+  },
+  {
+    "id": 6,
+    "name": "Ori & the blind forest",
+    "developer": "343 Industries",
+    "genre": "Metroidvania",
+    "image": "Ori.png"
+  },
+  {
+    "id": 7,
+    "name": "GTA V",
+    "developer": "Rockstar",
+    "genre": "Sandbox",
+    "image": "GTA_V.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Final Fantasy VII Remake",
+    "developer": "Square Enix",
+    "genre": "RPG",
+    "image": "images/FFXII.png"
+  },
+  {
+    "id": 9,
+    "name": "Star Wars: Jedi Fallen Order",
+    "developer": "Respawn",
+    "genre": "RPG",
+    "image": "images/StarWars.png"
+  },
+  {
+    "id": 10,
+    "name": "The Witcher 3",
+    "developer": "CD Projekt Red",
+    "genre": "Action RPG",
+    "image": "images/TheWitcher3.jpeg"
+  }
+]

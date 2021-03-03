@@ -11,10 +11,9 @@ const getPage = (page = 1) => {
   fetch(urlApi).then((response) => {
     return response.json()
   }).then((data) => {
-    console.log(data)
     const allVideogames = data.videogameList.map((videojuego) => {
       return `<div class="col-6 col-sm-6 col-md-4 col-lg-3">
-      <div class="card" id="${videojuego.id}{">
+      <div class="card" id="videojuego-${videojuego.id}">
         <img src="${videojuego.image}" class="card-img-top" alt="..." height="300">
         <div class="card-header">
           ${videojuego.name}
@@ -24,14 +23,42 @@ const getPage = (page = 1) => {
           <li class="list-group-item"><span>Genr:</span> ${videojuego.genre}</li>
         </ul>
         <div class="card-body">
-          <a href="#" class="card-link text-success">Editar</a>
-          <a href="#" class="card-link text-danger">Eliminar</a>
+        <button id="edit-${videojuego.id}"type="button" class="btn btn-success">Editar</button>
+        <button id="delete-${videojuego.id}"type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>`
     }).join("");
 
+    // <a href="update"></a>
+
+
     containerCards.innerHTML = allVideogames
+
+    data.videogameList.forEach((videogame) => {
+      const del = document.getElementById(`delete-${videogame.id}`)
+
+      del.addEventListener("click", (event) => {
+        deleteOne(parseInt(event.target.id.split("-")[1]));
+
+      })
+    })
+
+    data.videogameList.forEach((videogame) => {
+      const upd = document.getElementById(`edit-${videogame.id}`)
+
+      upd.addEventListener("click", (event) => {
+        const id = parseInt(event.target.id.split("-")[1]);
+        const name = videogame.name;
+        const developer = videogame.developer;
+        const genre = videogame.genre;
+        const image = videogame.image.split("/")[1];
+
+
+        editOne(id, name, developer, genre, image);
+
+      })
+    })
 
     const ulPagination = document.getElementById("ulPagination");
 
@@ -48,6 +75,20 @@ const getPage = (page = 1) => {
       };
     };
 
+    ul.unshift(`
+  <li class="page-item">
+    <a class="page-link nonAct" href="#" aria-label="Previous">
+      <span aria-hidden="true" id="prev">&laquo;</span>
+    </a>
+  </li>`);
+    ul.push(`
+  <li class="page-item">
+    <a class="page-link nonAct" href="#" aria-label="Next">
+      <span aria-hidden="true" id="next">&raquo;</span>
+    </a>
+  </li>`)
+
+
     ulPagination.innerHTML = ul.join("");
 
     for (let i = 1; i <= data.numbOfPages; i++) {
@@ -58,6 +99,30 @@ const getPage = (page = 1) => {
         getPage(event.target.id)
       })
     }
+
+    //configurar botones prev y next
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+
+    prev.addEventListener("click", () => {
+      let page = 1
+      if ((data.pageNumber - 1) === 0) {
+        page = 1
+      } else {
+        page = data.pageNumber - 1
+      }
+      getPage(page)
+    })
+
+    next.addEventListener("click", () => {
+      let page = 1
+      if ((data.pageNumber + 1) > data.numbOfPages) {
+        page = data.numbOfPages
+      } else {
+        page = data.pageNumber + 1
+      }
+      getPage(page)
+    })
 
 
   }).catch((err) => {
@@ -77,7 +142,7 @@ getPage()
 //     return response.json();
 //   }).then((data) => {
 //     console.log(data);
-//     const allVideogames = data.pokemon.map((videojuego) => {
+//     const allVideogames = data.videogame.map((videojuego) => {
 //       return `<div class="col-6 col-sm-6 col-md-4 col-lg-3">
 //       <div class="card" id="${videojuego.id}{">
 //         <img src="${videojuego.image}" class="card-img-top" alt="..." height="300">
@@ -107,7 +172,7 @@ getPage()
 
 //Boton de refrescar
 refresh.addEventListener("click", () => {
-  getAll();
+  getPage();
 })
 
 //Eliminar toda la BBDD
@@ -132,3 +197,34 @@ deleteALL.addEventListener("click", () => {
 
 
 
+//eliminar Videojuego y recargar la pagina:
+
+const deleteOne = (id) => {
+  const urlApi = `http://127.0.0.1:2929/api/videogames/${id}`
+
+  const opts = {
+    method: "DELETE",
+    headers: { "content-type": "application/json" },
+  }
+
+  fetch(urlApi, opts).then((response) => {
+    return response.json();
+  }).then((data) => {
+    alert("Videojuego eliminado de la BBDD")
+    getPage();
+  })
+
+}
+
+
+const editOne = (id, name, developer, genre, image) => {
+
+  localStorage.setItem("id", id);
+  localStorage.setItem("name", name);
+  localStorage.setItem("developer", developer);
+  localStorage.setItem("genre", genre);
+  localStorage.setItem("image", image);
+
+  window.location.replace("http://127.0.0.1:5555/update")
+
+}

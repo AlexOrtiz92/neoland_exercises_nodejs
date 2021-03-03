@@ -18,7 +18,7 @@
     "name": "Dark Souls 3",
     "developer": "From Software",
     "genre": "Soulslike",
-    "image": "images/DarkSouls3.png"
+    "image": "DarkSouls3.png"
   },
   {
     "id": 4,
@@ -46,6 +46,27 @@
     "name": "GTA V",
     "developer": "Rockstar",
     "genre": "Sandbox",
-    "image": "images/GTA_V.jpg"
+    "image": "GTA_V.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Final Fantasy VII Remake",
+    "developer": "Square Enix",
+    "genre": "RPG",
+    "image": "images/FFXII.png"
+  },
+  {
+    "id": 9,
+    "name": "Star Wars: Jedi Fallen Order",
+    "developer": "Respawn",
+    "genre": "RPG",
+    "image": "images/StarWars.png"
+  },
+  {
+    "id": 10,
+    "name": "The Witcher 3",
+    "developer": "CD Projekt Red",
+    "genre": "Action RPG",
+    "image": "images/TheWitcher3.jpeg"
   }
 ]

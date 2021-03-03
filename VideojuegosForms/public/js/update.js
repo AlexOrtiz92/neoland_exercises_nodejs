@@ -2,12 +2,27 @@
 const update = document.getElementById("update")
 const imgList = document.getElementById("imageList")
 
+const idVideo = parseInt(localStorage.id)
+const nameVideo = localStorage.name
+const devVideo = localStorage.developer
+const genreVideo = localStorage.genre
+const imgVideo = localStorage.image
+
+document.getElementById("name").value = nameVideo
+document.getElementById("developer").value = devVideo
+document.getElementById("genre").value = genreVideo
+document.getElementById("imageList").value = imgVideo
+
+
 
 //Añadir un videojuego
 update.addEventListener("click", () => {
 
-  const addVideogame = () => {
-    const urlApi = "http://127.0.0.1:2929/api/videogames"
+
+
+  const updateVideogame = () => {
+    const urlApi = `http://127.0.0.1:2929/api/videogames/${idVideo}`
+
 
     const newVid = {
       name: document.getElementById("name").value,
@@ -17,7 +32,7 @@ update.addEventListener("click", () => {
     };
 
     const opts = {
-      method: "POST",
+      method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(newVid)
     };
@@ -26,14 +41,14 @@ update.addEventListener("click", () => {
       return response.json()
     }).then((data) => {
       console.log(data)
-      alert("Videojuego añadido correctamente!")
+      alert("Videojuego actualizado correctamente!")
       window.location.replace("http://127.0.0.1:5555/index")
     }).catch((err) => {
       console.error(err)
     });
   };
 
-  addVideogame();
+  updateVideogame();
 })
 
 //Añadir imagenes de la lista desplegable
@@ -50,9 +65,14 @@ const imagesList = () => {
     return response.json();
   }).then((data) => {
 
-    const list = data.videogames.map((img) => `<option value="${img.image}">${img.image}</option>`);
+    const list = data.videogames.map((img) => {
+      if (imgVideo === img.image) {
+        return `<option  selected value="${img.image}">${img.image}</option>`
+      } else {
+        return `<option value="${img.image}">${img.image}</option>`
+      }
+    });
 
-    list.push(`<option value="." selected>Seleccione una imagen de la lista...</option>`)
 
     const totalList = list.reduce((acc, next) => acc + next, "")
 
